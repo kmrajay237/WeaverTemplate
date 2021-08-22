@@ -1,0 +1,30 @@
+body{
+    height: 90vh;
+    width: 100%;
+    color: rgb(8, 6, 0);
+    background: linear-gradient(rgba(235, 108, 65, .01),rgba(192, 29, 29, 0.01),rgba(253, 252, 252, 0.01)),url("/images/woolball.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.card {
+    background-color: rgba(255, 255, 255, .1);  
+    backdrop-filter: blur(2px);
+   }
+.divider{
+    position: relative;
+    text-align: center;
+}
+.divider span{
+    padding: 8px;
+    position: relative;
+    z-index: 2;
+}
+.divider:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid rgb(250, 247, 247);
+    top: 55%;
+    left: 0px;
+    z-index: 1;
+}
