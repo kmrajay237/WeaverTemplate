@@ -1,0 +1,13 @@
+body{
+    height: 90vh;
+    width: 100%;
+    color: rgb(8, 6, 0);
+    background: linear-gradient(rgba(235, 108, 65, .01),rgba(192, 29, 29, 0.01),rgba(253, 252, 252, 0.01)),url("/images/1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 50px;
+}
+.card {
+    background-color: rgba(236, 232, 229, 0);  
+    backdrop-filter: blur(1px);
+}
