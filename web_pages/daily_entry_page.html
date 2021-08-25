@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dynamic Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/table.css" />
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add new row
+            $("#add-row").click(function () {
+                var beemNumber = $("#beemNumber").val();
+                var today_date = $("#today_date").val();
+                var name = $("#name").val();
+                var loomNumber = $("#loomNumber").val();
+                var chauka_than_joda = $("#chauka_than_joda").val();
+                var amount = $("#amount").val();
+                $(".table tbody tr").last().after(
+                    '<tr class="fadetext">' +
+                    '<td><input type="checkbox" id="select-row"></td>' +
+                    '<td>' + beemNumber + '</td>' +
+                    '<td>' + today_date + '</td>' +
+                    '<td>' + name + '</td>' +
+                    '<td>' + loomNumber + '</td>' +
+                    '<td>' + chauka_than_joda + '</td>' +
+                    '<td>' + amount + '</td>' +
+                    '</tr>'
+                );
+            })
+
+            // Select all checkbox
+            $("#select-all").click(function () {
+                var isSelected = $(this).is(":checked");
+                if (isSelected) {
+                    $(".table tbody tr").each(function () {
+                        $(this).find('input[type="checkbox"]').prop('checked', true);
+                    })
+                } else {
+                    $(".table tbody tr").each(function () {
+                        $(this).find('input[type="checkbox"]').prop('checked', false);
+                    })
+                }
+            });
+
+            // Remove selected rows
+            $("#remove-row").click(function () {
+                $(".table tbody tr").each(function () {
+                    var isChecked = $(this).find('input[type="checkbox"]').is(":checked");
+                    var tableSize = $(".table tbody tr").length;
+                    if (tableSize == 1) {
+                        alert('All rows cannot be deleted.');
+                    } else if (isChecked) {
+                        $(this).remove();
+                    }
+                });
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+            <a class="navbar-brand" href="home_page.html">Bunkar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="services_page.html">Services <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="about_page.html">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact_page.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#!"><span class="fa fa-user-circle"></span> Welcome User</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/web_pages/login_page.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="google_translate_element"></div>
+        </nav>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid mt-5">
+
+        
+            <div class="form-div">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="beemNumber" placeholder="Beem Number">
+                        <label for="beemNumber">Beem Number</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="today_date" placeholder="Date">
+                        <label for="today_date">Date</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="loomNumber" placeholder="Loom Number">
+                        <label for="loomNumber">Loom Number</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="chauka_than_joda" placeholder="Chauka/Than/Joda">
+                        <label for="chauka_than_joda">Chauka/Joda/Than</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="amount" placeholder="Amount">
+                        <label for="amount">Amount</label>
+                    </div>
+                    <div class="col" style="text-align: right;">
+                        <button class="btn btn-primary" id="add-row">Add Row</button>
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>All <input type="checkbox" id="select-all"></th>
+                        <th>Beem Number</th>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Loom Number</th>
+                        <th>Chauka/Than/Joda</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="select-row"></td>
+                        <td>example</td>
+                        <td>example</td>
+                        <td>example</td>
+                        <td>example</td>
+                        <td>example</td>
+                        <td>example</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="remove-row" id="remove-row">Remove Row</button>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
